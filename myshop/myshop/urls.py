@@ -21,7 +21,7 @@ from .views import index, contacts, about
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
-    path('about/', about),
-    path('contacts/', contacts),
+    path('about/', about, name='about'),
+    path('contacts/', contacts, name='contacts'),
     path('products/', include('product_app.urls'))
 ]

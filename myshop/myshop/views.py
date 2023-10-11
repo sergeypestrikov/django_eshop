@@ -3,7 +3,8 @@ from django.shortcuts import render
 
 # Контроллер главной страницы
 def index(request):
-    return render(request, 'myshop/index.html')
+    context = render(request, 'myshop/index.html')
+    return context
 
 
 # Контроллер страницы о нас

@@ -1,32 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-
-    <title>Sixteen Clothing HTML Template</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="static/myshop/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<!--
-
-TemplateMo 546 Sixteen Clothing
-
-https://templatemo.com/tm-546-sixteen-clothing
-
--->
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="static/myshop/css/fontawesome.css">
-    <link rel="stylesheet" href="static/myshop/css/templatemo-sixteen.css">
-    <link rel="stylesheet" href="static/myshop/css/owl.css">
-
-  </head>
+{% extends 'myshop/base.html' %}
+{% load static %}
+{% block content %}
 
   <body>
 
@@ -40,35 +14,7 @@ https://templatemo.com/tm-546-sixteen-clothing
     </div>  
     <!-- ***** Preloader End ***** -->
 
-    <!-- Header -->
-    <header class="">
-      <nav class="navbar navbar-expand-lg">
-        <div class="container">
-          <a class="navbar-brand" href="/"><h2>Sixteen <em>Clothing</em></h2></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="/">Home
-                  <span class="sr-only">(current)</span>
-                </a>
-              </li> 
-              <li class="nav-item">
-                <a class="nav-link" href="products/">Our Products</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about/">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contacts/">Contact Us</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
+{% include 'includes/header.html' %}
 
     <!-- Page Content -->
     <!-- Banner Starts Here -->
@@ -76,20 +22,20 @@ https://templatemo.com/tm-546-sixteen-clothing
       <div class="owl-banner owl-carousel">
         <div class="banner-item-01">
           <div class="text-content">
-            <h4>Best Offer</h4>
-            <h2>New Arrivals On Sale</h2>
+            <h4>Лучшее предложение</h4>
+            <h2>распродажа моделей сезона {% now "Y" %}</h2>
           </div>
         </div>
         <div class="banner-item-02">
           <div class="text-content">
-            <h4>Flash Deals</h4>
-            <h2>Get your best products</h2>
+            <h4>Яркие покупки</h4>
+            <h2>Получите впечатления</h2>
           </div>
         </div>
         <div class="banner-item-03">
           <div class="text-content">
-            <h4>Last Minute</h4>
-            <h2>Grab last minute deals</h2>
+            <h4>Новинка</h4>
+            <h2>Горящие предложения</h2>
           </div>
         </div>
       </div>
@@ -101,13 +47,13 @@ https://templatemo.com/tm-546-sixteen-clothing
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading">
-              <h2>Latest Products</h2>
-              <a href="products/">view all products <i class="fa fa-angle-right"></i></a>
+              <h2>Последние поступления</h2>
+              <a href="products/">смотреть все <i class="fa fa-angle-right"></i></a>
             </div>
           </div>
           <div class="col-md-4">
             <div class="product-item">
-              <a href="#"><img src="static/myshop/images/product_01.jpg" alt=""></a>
+              <a href="#"><img src="{% static 'myshop/images/product_01.jpg' %}" alt=""></a>
               <div class="down-content">
                 <a href="#"><h4>Tittle goes here</h4></a>
                 <h6>$25.75</h6>
@@ -125,7 +71,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           </div>
           <div class="col-md-4">
             <div class="product-item">
-              <a href="#"><img src="static/myshop/images/product_02.jpg" alt=""></a>
+              <a href="#"><img src="{% static 'myshop/images/product_02.jpg' %}" alt=""></a>
               <div class="down-content">
                 <a href="#"><h4>Tittle goes here</h4></a>
                 <h6>$30.25</h6>
@@ -143,7 +89,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           </div>
           <div class="col-md-4">
             <div class="product-item">
-              <a href="#"><img src="static/myshop/images/product_03.jpg" alt=""></a>
+              <a href="#"><img src="{% static 'myshop/images/product_03.jpg' %}" alt=""></a>
               <div class="down-content">
                 <a href="#"><h4>Tittle goes here</h4></a>
                 <h6>$20.45</h6>
@@ -161,7 +107,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           </div>
           <div class="col-md-4">
             <div class="product-item">
-              <a href="#"><img src="static/myshop/images/product_04.jpg" alt=""></a>
+              <a href="#"><img src="{% static 'myshop/images/product_04.jpg' %}" alt=""></a>
               <div class="down-content">
                 <a href="#"><h4>Tittle goes here</h4></a>
                 <h6>$15.25</h6>
@@ -179,7 +125,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           </div>
           <div class="col-md-4">
             <div class="product-item">
-              <a href="#"><img src="static/myshop/images/product_05.jpg" alt=""></a>
+              <a href="#"><img src="{% static 'myshop/images/product_05.jpg' %}" alt=""></a>
               <div class="down-content">
                 <a href="#"><h4>Tittle goes here</h4></a>
                 <h6>$12.50</h6>
@@ -197,7 +143,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           </div>
           <div class="col-md-4">
             <div class="product-item">
-              <a href="#"><img src="static/myshop/images/product_06.jpg" alt=""></a>
+              <a href="#"><img src="{% static 'myshop/images/product_06.jpg' %}" alt=""></a>
               <div class="down-content">
                 <a href="#"><h4>Tittle goes here</h4></a>
                 <h6>$22.50</h6>
@@ -222,26 +168,26 @@ https://templatemo.com/tm-546-sixteen-clothing
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading">
-              <h2>About Sixteen Clothing</h2>
+              <h2>О нашем магазине</h2>
             </div>
           </div>
           <div class="col-md-6">
             <div class="left-content">
-              <h4>Looking for the best products?</h4>
-              <p><a rel="nofollow" href="https://templatemo.com/tm-546-sixteen-clothing" target="_parent">This template</a> is free to use for your business websites. However, you have no permission to redistribute the downloadable ZIP file on any template collection website. <a rel="nofollow" href="https://templatemo.com/contact">Contact us</a> for more info.</p>
+              <h4>Ищете лучшую одежду для яхтинга?</h4>
+              <p><a rel="nofollow" href="https://templatemo.com/tm-546-sixteen-clothing" target="_parent"> Мы разбираемся не только в трендах и матералах, мы настоящие специалисты в морском деле. <a rel="nofollow" href="https://templatemo.com/contact">Свяжитесь с нами</a> что бы узнать больше.</p>
               <ul class="featured-list">
-                <li><a href="#">Lorem ipsum dolor sit amet</a></li>
-                <li><a href="#">Consectetur an adipisicing elit</a></li>
-                <li><a href="#">It aquecorporis nulla aspernatur</a></li>
-                <li><a href="#">Corporis, omnis doloremque</a></li>
-                <li><a href="#">Non cum id reprehenderit</a></li>
+                <li><a href="#">Только качественные материалы</a></li>
+                <li><a href="#">Модели разработаны с учетом реальных ситуаций</a></li>
+                <li><a href="#">Долговечность экипировки</a></li>
+                <li><a href="#">Справедливые цены</a></li>
+                <li><a href="#">Высокий уровень сервиса</a></li>
               </ul>
-              <a href="about.html" class="filled-button">Read More</a>
+              <a href="about.html" class="filled-button">Читать далее</a>
             </div>
           </div>
           <div class="col-md-6">
             <div class="right-image">
-              <img src="static/myshop/images/feature-image.jpg" alt="">
+              <img src="{% static 'myshop/images/feature-image.jpg' %}" alt="">
             </div>
           </div>
         </div>
@@ -256,11 +202,11 @@ https://templatemo.com/tm-546-sixteen-clothing
             <div class="inner-content">
               <div class="row">
                 <div class="col-md-8">
-                  <h4>Creative &amp; Unique <em>Sixteen</em> Products</h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque corporis amet elite author nulla.</p>
+                  <h4>Надежно и Стильно <em>Yachting</em> Products</h4>
+                  <p>А еще мы можем сшить одежду на заказ.</p>
                 </div>
                 <div class="col-md-4">
-                  <a href="#" class="filled-button">Purchase Now</a>
+                  <a href="#" class="filled-button">Заказать сейчас</a>
                 </div>
               </div>
             </div>
@@ -269,47 +215,6 @@ https://templatemo.com/tm-546-sixteen-clothing
       </div>
     </div>
 
-    
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="inner-content">
-              <p>Copyright &copy; 2020 Sixteen Clothing Co., Ltd.
-            
-            - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    {% include 'includes/footer.html' %}
 
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="static/myshop/jquery/jquery.min.js"></script>
-    <script src="static/myshop/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
-    <!-- Additional Scripts -->
-    <script src="static/myshop/js/custom.js"></script>
-    <script src="static/myshop/js/owl.js"></script>
-    <script src="static/myshop/js/slick.js"></script>
-    <script src="static/myshop/js/isotope.js"></script>
-    <script src="static/myshop/js/accordions.js"></script>
-
-
-    <script language = "text/Javascript"> 
-      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
-      function clearField(t){                   //declaring the array outside of the
-      if(! cleared[t.id]){                      // function makes it static and global
-          cleared[t.id] = 1;  // you could use true and false, but that's more typing
-          t.value='';         // with more chance of typos
-          t.style.color='#fff';
-          }
-      }
-    </script>
-
-
-  </body>
-
-</html>
+    {% endblock %}
