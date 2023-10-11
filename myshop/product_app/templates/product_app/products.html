@@ -1,32 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-
-    <title>Sixteen Clothing Products</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="/static/myshop/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<!--
-
-TemplateMo 546 Sixteen Clothing
-
-https://templatemo.com/tm-546-sixteen-clothing
-
--->
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="/static/myshop/css/fontawesome.css">
-    <link rel="stylesheet" href="/static/myshop/css/templatemo-sixteen.css">
-    <link rel="stylesheet" href="/static/myshop/css/owl.css">
-
-  </head>
+{% extends 'myshop/base.html' %}
+{% load static %}
+{% block content %}
 
   <body>
 
@@ -40,35 +14,7 @@ https://templatemo.com/tm-546-sixteen-clothing
     </div>  
     <!-- ***** Preloader End ***** -->
 
-    <!-- Header -->
-    <header class="">
-      <nav class="navbar navbar-expand-lg">
-        <div class="container">
-          <a class="navbar-brand" href="/"><h2>Sixteen <em>Clothing</em></h2></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="/">Home
-                  <span class="sr-only">(current)</span>
-                </a>
-              </li> 
-              <li class="nav-item active">
-                <a class="nav-link" href="products/">Our Products</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/about/">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/contacts/">Contact Us</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
+{% include 'includes/header.html' %}
 
     <!-- Page Content -->
     <div class="page-heading products-heading header-text">
@@ -76,8 +22,8 @@ https://templatemo.com/tm-546-sixteen-clothing
         <div class="row">
           <div class="col-md-12">
             <div class="text-content">
-              <h4>new arrivals</h4>
-              <h2>sixteen products</h2>
+              <h4>новые поступления</h4>
+              <h2>Одежда для Яхтсменов</h2>
             </div>
           </div>
         </div>
@@ -91,10 +37,10 @@ https://templatemo.com/tm-546-sixteen-clothing
           <div class="col-md-12">
             <div class="filters">
               <ul>
-                  <li class="active" data-filter="*">All Products</li>
-                  <li data-filter=".des">Featured</li>
-                  <li data-filter=".dev">Flash Deals</li>
-                  <li data-filter=".gra">Last Minute</li>
+                  <li class="active" data-filter="*">Все товары</li>
+                  <li data-filter=".des">Рекомендуемые</li>
+                  <li data-filter=".dev">Горящие предложения</li>
+                  <li data-filter=".gra">Последние просмотры</li>
               </ul>
             </div>
           </div>
@@ -105,7 +51,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                       <div class="product-item">
                         <a href="#"><img src="/static/myshop/images/product_01.jpg" alt=""></a>
                         <div class="down-content">
-                          <a href="#"><h4>Tittle goes here</h4></a>
+                          <a href="#"><h4>Наименование товара</h4></a>
                           <h6>$18.25</h6>
                           <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
                           <ul class="stars">
@@ -115,7 +61,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                             <li><i class="fa fa-star"></i></li>
                             <li><i class="fa fa-star"></i></li>
                           </ul>
-                          <span>Reviews (12)</span>
+                          <span>Отзывы (12)</span>
                         </div>
                       </div>
                     </div>
@@ -225,47 +171,6 @@ https://templatemo.com/tm-546-sixteen-clothing
       </div>
     </div>
 
-    
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="inner-content">
-              <p>Copyright &copy; 2020 Sixteen Clothing Co., Ltd.
-            
-            - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    {% include 'includes/footer.html' %}
 
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="/static/myshop/jquery/jquery.min.js"></script>
-    <script src="/static/myshop/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
-    <!-- Additional Scripts -->
-    <script src="/static/myshop/js/custom.js"></script>
-    <script src="/static/myshop/js/owl.js"></script>
-    <script src="/static/myshop/js/slick.js"></script>
-    <script src="/static/myshop/js/isotope.js"></script>
-    <script src="/static/myshop/js/accordions.js"></script>
-
-
-    <script language = "text/Javascript"> 
-      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
-      function clearField(t){                   //declaring the array outside of the
-      if(! cleared[t.id]){                      // function makes it static and global
-          cleared[t.id] = 1;  // you could use true and false, but that's more typing
-          t.value='';         // with more chance of typos
-          t.style.color='#fff';
-          }
-      }
-    </script>
-
-
-  </body>
-
-</html>
+    {% endblock %}
