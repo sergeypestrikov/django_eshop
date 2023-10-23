@@ -2,16 +2,30 @@ from django.shortcuts import render
 
 
 # Контроллер главной страницы
+from product_app.models import Product
+
+
 def index(request):
-    context = render(request, 'myshop/index.html')
-    return context
+    products = Product.objects.all()[:3]
+
+    context = {
+        'title': 'главная',
+        'products': products,
+    }
+    return render(request, 'myshop/index.html', context=context)
 
 
 # Контроллер страницы о нас
 def about(request):
-    return render(request, 'myshop/about.html')
+    context = {
+        'title': 'о нас'
+    }
+    return render(request, 'myshop/about.html', context=context)
 
 
 # Контроллер страницы с контактами
 def contacts(request):
-    return render(request, 'myshop/contact.html')
+    context = {
+        'title': 'контакты'
+    }
+    return render(request, 'myshop/contact.html', context=context)
