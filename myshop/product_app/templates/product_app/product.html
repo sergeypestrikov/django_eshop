@@ -1,0 +1,22 @@
+{% extends 'myshop/base.html' %}
+{% load static %}
+{% block content %}
+{% include 'includes/header.html' %}
+
+
+<div class="col-md-4">
+            <div class="product-item">
+              <a href="#"><img src="/media/{{ object.image }}" alt=""></a>
+              <div class="down-content">
+                <h4>{{ object.name }} {{ object.brand }}</h4>
+                  <h4>{{ object.description }}</h4>
+
+              </div>
+            </div>
+</div>>
+
+
+
+
+{% include 'includes/footer.html' %}
+{% endblock %}
