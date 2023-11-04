@@ -1,0 +1,66 @@
+{% extends 'auth_app/base.html' %}
+{% load static %}
+
+{% block content %}
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section"></h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-12 col-lg-10">
+					<div class="wrap d-md-flex">
+						<div class="img" style="background-image: url(images/bg-1.jpg);">
+			      </div>
+						<div class="login-wrap p-4 p-md-5">
+			      	<div class="d-flex">
+			      		<div class="w-100">
+			      			<h4 class="mb-4">Войти на сайт</h4>
+			      		</div>
+								<div class="w-100">
+<!--									<p class="social-media d-flex justify-content-end">-->
+<!--										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>-->
+<!--										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>-->
+<!--									</p>-->
+								</div>
+			      	</div>
+							<form action="{% url 'auth_app:login' %}" method="post" class="signin-form">
+                                {% csrf_token %}
+                                {{ login_form }}
+		            <div class="form-group">
+		            	<button type="submit" class="form-control btn btn-primary rounded submit px-3">Войти</button>
+		            </div>
+		            <div class="form-group d-md-flex">
+		            	<div class="w-50 text-left">
+			            	<label class="checkbox-wrap checkbox-primary mb-0">Запомнить меня
+									  <input type="checkbox" checked>
+									  <span class="checkmark"></span>
+										</label>
+									</div>
+									<div class="w-50 text-md-right">
+										<a href="#">Забыл пароль</a>
+									</div>
+		            </div>
+		          </form>
+		          <p class="text-center">Еще не зарегистрированы?<a data-toggle="tab" href="{% url 'auth_app:register' %}">Зарегистрироваться</a></p>
+		        </div>
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	</body>
+
+
+<!--    <form class="form-horizontal" action="{% url 'auth_app:login' %}" method="post">-->
+<!--    {% csrf_token %}-->
+<!--    {{ login_form }}-->
+<!--        <button type="submit" class="btn btn-primary">Войти</button>-->
+<!--    </form>-->
+<!--        <a href="{% url 'auth_app:register' %}">Регистрация</a>-->
+{% endblock %}
+

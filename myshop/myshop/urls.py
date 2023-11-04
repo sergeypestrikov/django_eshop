@@ -22,10 +22,11 @@ from .views import index, contacts, about
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index),
+    path('', index, name='index'),
     path('about/', about, name='about'),
     path('contacts/', contacts, name='contacts'),
-    path('products/', include('product_app.urls'))
+    path('products/', include('product_app.urls')),
+    path('auth/', include('auth_app.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

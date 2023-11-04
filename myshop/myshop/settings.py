@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-(l_($+0r2dgbd5)s(n-1uzl)-2hq^m(l(xc+qxus-=8q1r0si)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'product_app',
+    'auth_app',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'auth_app.ShopUser'
