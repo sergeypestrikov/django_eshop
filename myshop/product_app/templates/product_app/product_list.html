@@ -33,11 +33,14 @@
 
     <div class="products">
       <div class="container">
+          {% include 'product_app/includes/inc_menu.html' %}
         <div class="row">
           <div class="col-md-12">
-            {% include 'product_app/includes/inc_menu.html' %}
+              <h3>
+                  Категория: {{ category.name|title }}
+              </h3>
           </div>
-            {% for product in object %}
+            {% for product in products %}
           <div class="col-md-4">
             <div class="product-item">
               <a href="#"><img src="/media/{{ product.image }}" alt=""></a>
