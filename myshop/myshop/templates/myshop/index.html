@@ -54,7 +54,7 @@
           {% for product in products %}
           <div class="col-md-4">
             <div class="product-item">
-              <a href="#"><img src="/media/{{ product.image }}" alt=""></a>
+              <a href="{% url 'basket_app:add' product.pk %}"><img src="/media/{{ product.image }}" alt=""></a>
               <div class="down-content">
                 <a href="#"><h4>{{ product.name }} {{ product.brand }}</h4></a>
                 <h4>{{ product.price }} руб</h4>

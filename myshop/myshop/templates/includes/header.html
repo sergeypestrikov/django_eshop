@@ -38,6 +38,11 @@
                 {% endif %}
               </li>
             </ul>
+              <a href="{#% url 'basket_app:add' %#}" class="basket">
+              <span>
+                {% if basket %} {{ basket|length }} {% endif %}
+              </span>
+              </a>
           </div>
         </div>
       </nav>
