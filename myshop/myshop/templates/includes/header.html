@@ -38,9 +38,12 @@
                 {% endif %}
               </li>
             </ul>
-              <a href="{#% url 'basket_app:add' %#}" class="basket">
+              <a href="{% url 'basket_app:view' %}" class="basket" style="width: 100px;">
               <span>
-                {% if basket %} {{ basket|length }} {% endif %}
+                {% if basket %}
+                  {{ basket.0.total_price|floatformat:0 }} руб
+                  ({{ basket.0.total_quantity }} шт)
+                {% endif %}
               </span>
               </a>
           </div>

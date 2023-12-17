@@ -1,17 +1,28 @@
+import random
+
 from django.shortcuts import render, get_object_or_404
 
 from basket_app.models import Basket
 from product_app.models import Product, ProductCategory
 
 
-# Контроллер страницы конкретного продукта
-def product(request, id):
-    context = {
-        'title': 'страница товара',
-        'object': Product.objects.get(pk=id)
-    }
-    print(id)
-    return render(request, 'product_app/product.html', context=context)
+def get_basket(user):
+    if user.is_authenticated:
+        return Basket.objects.filter(user=user)
+    else:
+        return []
+
+
+# Контроллер горячих предложений? рандомно выводимых на странице
+def get_hot_product():
+    products = Product.objects.all()
+    return random.sample(list(products), 1)[0]
+
+
+# Получение похожего продукта
+def get_same_product(hot_product):
+    same_product = Product.objects.filter(category=hot_product.category).exclude(pk=hot_product.pk).order_by('price')
+    return same_product
 
 
 # Контроллер продуктовой страницы
@@ -19,9 +30,8 @@ def products(request, pk=None):
     title = 'каталог'
     catalog = Product.objects.all()[:]
     links_menu = ProductCategory.objects.all()
-    basket = []
-    if request.user.is_authenticated:
-        basket = Basket.objects.filter(user=request.user)
+
+    basket = get_basket(request.user)
 
     if pk is not None:
         if pk == 0:
@@ -40,13 +50,35 @@ def products(request, pk=None):
         }
         return render(request, 'product_app/product_list.html', context)
 
-    same_product = Product.objects.all()[2:4]
+    hot_product = get_hot_product()
+    same_product = get_same_product(hot_product)
 
     context = {
         'title': title,
         'object': catalog,
         'links_menu': links_menu,
+        'hot_product': hot_product,
         'same_product': same_product,
         'basket': basket,
     }
     return render(request, 'product_app/products.html', context=context)
+
+
+# Контроллер страницы конкретного продукта
+def product(request, pk):
+    title = 'детальное описание'
+    link_menu = ProductCategory.objects.all()
+    product = get_object_or_404(Product, pk=pk)
+    basket = get_basket(request.user)
+    hot_product = get_hot_product()
+    same_product = get_same_product(hot_product)
+
+    context = {
+        'title': title,
+        'link_menu': link_menu,
+        'product': product,
+        'same_product': same_product,
+        'basket': basket,
+    }
+
+    return render(request, 'product_app/product.html', context=context)

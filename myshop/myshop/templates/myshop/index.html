@@ -12,12 +12,9 @@
             <div></div>
         </div>
     </div>
-    <!-- ***** Preloader End ***** -->
 
 {% include 'includes/header.html' %}
 
-    <!-- Page Content -->
-    <!-- Banner Starts Here -->
     <div class="banner header-text">
       <div class="owl-banner owl-carousel">
         <div class="banner-item-01">
@@ -47,30 +44,23 @@
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading">
-              <h2>Последние поступления</h2>
+              <h3>Горячее предложение</h3>
               <a href="products/">смотреть все <i class="fa fa-angle-right"></i></a>
             </div>
+            {% if hot_product %}
+            <img src="/media/{{ hot_product.image }}">
           </div>
-          {% for product in products %}
-          <div class="col-md-4">
-            <div class="product-item">
-              <a href="{% url 'basket_app:add' product.pk %}"><img src="/media/{{ product.image }}" alt=""></a>
+          <div class="col-md-6">
+            <div class="product-item" style="width: 960px;">
+
               <div class="down-content">
-                <a href="#"><h4>{{ product.name }} {{ product.brand }}</h4></a>
-                <h4>{{ product.price }} руб</h4>
-                <p>{{ product.description }}</p>
-                <ul class="stars">
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
+                <a href="#"><h3>{{ hot_product.name }} {{ hot_product.brand }} </h3></a>
+                {{ hot_product.description }}
                 </ul>
-                <span>Отзывы (24)</span>
+                {% endif %}
               </div>
             </div>
           </div>
-          {% endfor %}
 
             </div>
           </div>
