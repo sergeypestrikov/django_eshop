@@ -29,6 +29,9 @@
 			      	</div>
 							<form action="{% url 'auth_app:login' %}" method="post" class="signin-form">
                                 {% csrf_token %}
+								{% if next %}
+								<input type="hidden" name="next" value="{{ next }}">
+								{% endif %}
                                 {{ login_form }}
 		            <div class="form-group">
 		            	<button type="submit" class="form-control btn btn-primary rounded submit px-3">Войти</button>

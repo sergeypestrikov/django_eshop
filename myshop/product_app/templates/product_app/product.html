@@ -3,20 +3,26 @@
 {% block content %}
 {% include 'includes/header.html' %}
 
-
-<div class="col-md-4">
+<div class="products">
+      <div class="container">
+          {% include 'product_app/includes/inc_menu.html' %}
+        <div class="row">
+          <div class="col-md-3">
+          </div>
+          <div class="col-md-6">
             <div class="product-item">
-              <a href="#"><img src="/media/{{ object.image }}" alt=""></a>
+              <a href="#"><img src="/media/{{ product.image }}" alt=""></a>
               <div class="down-content">
-                <h4>{{ object.name }} {{ object.brand }}</h4>
-                  <h4>{{ object.description }}</h4>
+                <a href="#"><h4>{{ product.name }} {{ product.brand }}</h4></a>
+                <h4>{{ product.price }} руб</h4>
+                <p>{{ product.description }}</p>
+                <a href="{% url 'basket_app:add' product.pk %}" class="red-button">
+                  в корзину <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </a>
 
               </div>
             </div>
-</div>>
-
-
-
+          </div>
 
 {% include 'includes/footer.html' %}
 {% endblock %}

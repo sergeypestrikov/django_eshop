@@ -4,10 +4,12 @@ from django.shortcuts import render
 # Контроллер главной страницы
 from basket_app.models import Basket
 from product_app.models import Product
+from product_app.views import *
 
 
 def index(request):
     products = Product.objects.all()[:3]
+    hot_product = get_hot_product()
     basket = []
     if request.user.is_authenticated:
         basket = Basket.objects.filter(user=request.user)
@@ -15,6 +17,7 @@ def index(request):
     context = {
         'title': 'главная',
         'products': products,
+        'hot_product': hot_product,
         'basket': basket,
     }
     return render(request, 'myshop/index.html', context=context)
