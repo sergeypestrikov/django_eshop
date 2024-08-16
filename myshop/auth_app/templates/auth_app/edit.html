@@ -23,6 +23,13 @@
 								<div class="w-100">
 								</div>
 			      	</div>
+							<div class="col-4 mx-10">
+				<div class="row">
+			<div class="users_avatar">
+				<img src="/media/{{ user.avatar|default:'avatar-placeholder.jpg' }}" class="rounded-circle" height="100" width="100">
+			</div>
+				</div>
+					</div>
 							<form action="{% url 'auth_app:edit' %}" method="post" class="signin-form">
                                 {% csrf_token %}
                                 {{ edit_form }}

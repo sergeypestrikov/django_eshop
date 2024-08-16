@@ -40,7 +40,7 @@
             {% for product in object %}
           <div class="col-md-4">
             <div class="product-item">
-              <a href="{% url 'detail' product.pk %}"><img src="/media/{{ product.image }}" alt=""></a>
+              <a href="{% url 'detail' product.pk %}"><img src="/media/{{ product.image }}" alt="" class="rounded-circle" height="350" width="50"></a>
               <div class="down-content">
                 <a href="{% url 'detail' product.pk %}"><h4>{{ product.name }} {{ product.brand }}</h4></a>
                 <h4>{{ product.price }} руб</h4>
@@ -61,15 +61,23 @@
           </div>
           {% endfor %}
 
-          <div class="col-md-12">
-            <ul class="pages">
-              <li><a href="#">1</a></li>
-              <li class="active"><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-            </ul>
-          </div>
+<!--          <div class="col-md-12">-->
+            <ul class="paginator">
+              {% if products.has_previous %}
+                <a href="{% url 'products:page' products.previous_page_number %}">
+
+                </a>
+              {% endif %}
+              <span class="current">
+                страница {{ product.number }} из
+                {{ product.paginator.num_pages }}
+              </span>
+              {% if products.has_next %}
+                <a href="{% url 'products.page' products.next_page_number %}">
+
+                </a>
+              {% endif %}
+<!--          </div>-->
         </div>
       </div>
     </div>

@@ -45,3 +45,6 @@ def contacts(request):
         'title': 'контакты'
     }
     return render(request, 'myshop/contact.html', context=context)
+
+
+#Внесены изменения в корзину ддля проверки Noroots
